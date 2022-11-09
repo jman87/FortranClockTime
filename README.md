@@ -20,6 +20,9 @@ call print_start_time
 
 Printing the end time (and also the elapsed time):
 call print_end_time
+```
+call print_end_time
+```
 
 ## Compiling / Examples
 Simple bash scripts are provided to help with compiling and testing.
