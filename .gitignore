@@ -30,3 +30,20 @@
 *.exe
 *.out
 *.app
+
+# System
+.DS_Store
+*.swp
+
+# Folders
+test
+
+# Shell scripts
+*.sh
+*.csh
+
+# Mesh Files
+*.g
+*.exo
+*.exotxt
+
