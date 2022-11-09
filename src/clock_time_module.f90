@@ -10,6 +10,14 @@ module clock_time_module
                                        '--------------------' // &
                                        '--------------------'
 
+    ! Module Formats
+    character( 4), parameter :: f0 = "(/A)"
+    character(16), parameter :: f1 = "(/A, ':', 2X, A)"
+    character(48), parameter :: f2 = "(/'ELAPSED CLOCK TIME:', 2X, A, ' milliseconds')"
+    character(47), parameter :: f3 = "(/'ELAPSED CLOCK TIME:', 2X, F10.3, ' seconds')"
+    character(47), parameter :: f4 = "(/'ELAPSED CLOCK TIME:', 2X, F10.3, ' minutes')"
+    character(45), parameter :: f5 = "(/'ELAPSED CLOCK TIME:', 2X, F10.3, ' hours')"
+
     ! Module Variables
     type ClockType
         character(12) :: time=''
@@ -23,14 +31,6 @@ module clock_time_module
 
     save clock_time_start
 
-    ! Module Formats
-    character(4)  :: f0 = "(/A)"
-    character(16) :: f1 = "(/A, ':', 2X, A)"
-    character(48) :: f2 = "(/'ELAPSED CLOCK TIME:', 2X, A, ' milliseconds')"
-    character(47) :: f3 = "(/'ELAPSED CLOCK TIME:', 2X, F10.3, ' seconds')"
-    character(47) :: f4 = "(/'ELAPSED CLOCK TIME:', 2X, F10.3, ' minutes')"
-    character(45) :: f5 = "(/'ELAPSED CLOCK TIME:', 2X, F10.3, ' hours')"
-
     ! Scope
     private
     public print_start_time, print_end_time
@@ -39,7 +39,7 @@ module clock_time_module
 contains
 
 
-!-------------------------------------------------------------------------------
+!---------------------------------------------------------------------------------------
 function int2text(i) result(res)
     character(:), allocatable :: res
     integer(ik),  intent(in)  :: i
@@ -48,7 +48,7 @@ function int2text(i) result(res)
     res = trim(temp)
 end function int2text
 
-!-------------------------------------------------------------------------------
+!---------------------------------------------------------------------------------------
 subroutine print_start_time
 
     clock_time_start = get_clock_time()
@@ -58,7 +58,7 @@ subroutine print_start_time
 
 end subroutine print_start_time
 
-!-------------------------------------------------------------------------------
+!---------------------------------------------------------------------------------------
 subroutine print_end_time
 
     character(:), allocatable :: text
@@ -84,7 +84,7 @@ subroutine print_end_time
 
 end subroutine print_end_time
 
-!-------------------------------------------------------------------------------
+!---------------------------------------------------------------------------------------
 function get_clock_time() result(current_time)
     ! Function Variables
     type(ClockType) :: current_time
@@ -119,5 +119,5 @@ function get_clock_time() result(current_time)
 
 end function get_clock_time
 
-!-------------------------------------------------------------------------------
+!---------------------------------------------------------------------------------------
 end module clock_time_module
