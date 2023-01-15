@@ -5,10 +5,7 @@ module clock_time_module
     implicit none
 
     ! Module Constants
-    character(80), parameter :: dash80='--------------------' // &
-                                       '--------------------' // &
-                                       '--------------------' // &
-                                       '--------------------'
+    character(80), parameter :: dash80=repeat('-', 80)
 
     ! Module Formats
     character( 4), parameter :: f0 = "(/A)"
